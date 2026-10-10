@@ -31,8 +31,8 @@ const Header = () => {
                 </div>
             </div>
             <div className='flex gap-2'>
-               <Link href={'/'}> <button className='bg-base-200 rounded-md px-3 py-2 text-md'>সাইন ইন</button></Link>
-                <Link href={'/'}><button className='rounded-md bg-green-700 px-4 py-2 text-md font-semibold text-white hover:bg-red-700'>সাইন আপ</button></Link>
+               <Link href={'/sign-in'}> <button className='bg-base-200 rounded-md px-3 py-2 text-md'>সাইন ইন</button></Link>
+                <Link href={'/sign-up'}><button className='rounded-md bg-green-700 px-4 py-2 text-md font-semibold text-white hover:bg-red-700'>সাইন আপ</button></Link>
             </div>
         </div>
         <Navlinks></Navlinks>
