@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
+
 import React from 'react';
 import Navlinks from './Navlinks';
 import Marquee from './Marquee';
+import UserInfo from './UserInfo';
 
 const Header = () => {
     const today = new Date()
@@ -27,13 +28,13 @@ const Header = () => {
                             day: "numeric",
                         })}
                     </p>
+                    
 
                 </div>
+                
             </div>
-            <div className='flex gap-2'>
-               <Link href={'/sign-in'}> <button className='bg-base-200 rounded-md px-3 py-2 text-md'>সাইন ইন</button></Link>
-                <Link href={'/sign-up'}><button className='rounded-md bg-green-700 px-4 py-2 text-md font-semibold text-white hover:bg-red-700'>সাইন আপ</button></Link>
-            </div>
+            <UserInfo></UserInfo>
+            
         </div>
         <Navlinks></Navlinks>
         <Marquee></Marquee>

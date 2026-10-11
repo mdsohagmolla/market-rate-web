@@ -1,6 +1,6 @@
 import { Ifilter } from '@/app/page';
 import Link from 'next/link';
-import React from 'react';
+
 
 const ProductCard = ({item}:{item:Ifilter}) => {
    

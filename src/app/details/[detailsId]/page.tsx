@@ -1,5 +1,8 @@
 
 import { Product } from '@/app/type';
+import { notFound } from 'next/navigation';
+
+
 import React from 'react';
 
 
@@ -9,9 +12,17 @@ const DetailsPage = async ({ params }: { params: { detailsId: string } }) => {
     // console.log('details er param',detailsId)
 
     // data fething 
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products/${detailsId}`)
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${detailsId}`,{
+      next:{
+        revalidate: 3600,
+      }
+    })
     const data:Product = await res.json();
-    console.log('details page er data', data)
+    
+    const newData = data.id
+    if(!newData){
+      notFound()
+    }
 
     // gpt section
 

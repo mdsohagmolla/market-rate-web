@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
 interface ImarqueeData{
@@ -16,7 +16,7 @@ const Marquee = async() => {
 
     // Data fetching
 
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products', {
+    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products', {
     next: {
       revalidate: 3600,
     },

@@ -1,8 +1,9 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SignUpPage = () => {
 
@@ -58,44 +59,151 @@ const SignUpPage = () => {
         }
 
     }
+
+     // todo: google sign up handle
+    const handleGoogleSignUp = async()=>{
+         const data = await authClient.signIn.social({
+    provider: "google",
+
+  });
+  
+        
+
+    }
     return (
         <div>
-            <div className='flex  flex-col justify-center items-center '>
-                <h1 className='text-2xl text-green-700 font-semibold p-5'>সাইন আপ</h1>
-                <form onSubmit={onSubmit}>
-                    <fieldset className="fieldset  border-base-300 rounded-box w-md  p-4 ">
-                        <label className="label">নাম</label>
-                        <input name="name" type="text" className="input w-md" placeholder="Name" />
+            <div className="min-h-screen bg-[#F0F5F0] px-4 py-8 flex flex-col items-center">
 
-                        <label className="label">ইমেইল</label>
-                        <input name="email" type="email" className="input w-md" placeholder="Email" />
+  {/* Heading */}
+  <div className="text-center mb-6">
+    <h1 className="text-2xl font-bold text-[#26332B]">
+      অ্যাকাউন্ট তৈরি করুন
+    </h1>
 
-                        <label className="label">পাসওয়ার্ড</label>
-                        <input
-                            name="password"
-                            type="password"
-                            className="input w-md"
-                            placeholder="Password"
-                            minLength={8}
-                            required
-                        />
+    <p className="text-sm text-gray-500 mt-2">
+      বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
+    </p>
+  </div>
 
-                        <label className="label">কনফার্ম পাসওয়ার্ড</label>
-                        <input
-                            name="confirmPassword"
-                            type="password"
-                            className="input w-md"
-                            placeholder="Confirm Password"
-                            minLength={8}
-                            required
-                        />
+  {/* Sign Up Card */}
+  <div className="w-full max-w-md bg-[#FAFCFA] border border-[#DDE6DE] rounded-2xl p-6 sm:p-8">
 
-                        <button type='submit' className="btn bg-green-600 text-white mt-4">সাইন আপ করুন</button>
-                    </fieldset>
-                </form>
-                <p><small>Or</small></p>
-                <button className="btn bg-green-600 text-white m-2 "><small>Sign Up with google</small></button>
-            </div>
+    <form onSubmit={onSubmit}>
+      <fieldset className="flex flex-col gap-3">
+
+        {/* Name */}
+        <label className="text-sm font-medium text-[#26332B]">
+          নাম
+        </label>
+
+        <input
+          name="name"
+          type="text"
+          className="input w-full bg-transparent border-[#DDE6DE] focus:outline-green-600"
+          placeholder="যেমন: রহিম উদ্দিন"
+          required
+        />
+
+        {/* Email */}
+        <label className="text-sm font-medium text-[#26332B]">
+          ইমেইল
+        </label>
+
+        <input
+          name="email"
+          type="email"
+          className="input w-full bg-transparent border-[#DDE6DE] focus:outline-green-600"
+          placeholder="you@example.com"
+          required
+        />
+
+        {/* Password */}
+        <label className="text-sm font-medium text-[#26332B]">
+          পাসওয়ার্ড
+        </label>
+
+        <input
+          name="password"
+          type="password"
+          className="input w-full bg-transparent border-[#DDE6DE] focus:outline-green-600"
+          placeholder="কমপক্ষে ৮ অক্ষর"
+          minLength={8}
+          required
+        />
+
+        {/* Confirm Password */}
+        <label className="text-sm font-medium text-[#26332B]">
+          পাসওয়ার্ড নিশ্চিত করুন
+        </label>
+
+        <input
+          name="confirmPassword"
+          type="password"
+          className="input w-full bg-transparent border-[#DDE6DE] focus:outline-green-600"
+          placeholder="আবার লিখুন"
+          minLength={8}
+          required
+        />
+
+        {/* Submit */}
+        <button
+          type="submit"
+          className="btn w-full bg-green-700 hover:bg-green-800 text-white border-0 mt-1 shadow-md"
+        >
+          অ্যাকাউন্ট তৈরি করুন
+        </button>
+
+      </fieldset>
+    </form>
+
+    {/* Divider */}
+    <div className="flex items-center gap-3 my-4">
+      <div className="flex-1 h-[2px] bg-gray-200" />
+
+      <span className="text-sm text-gray-500">
+        অথবা
+      </span>
+
+      <div className="flex-1 h-[2px] bg-gray-200" />
+    </div>
+
+    {/* Google Sign Up */}
+    <button
+      type="button"
+      onClick={handleGoogleSignUp}
+      className="btn w-full border border-[#DDE6DE] bg-transparent text-[#26332B] hover:bg-gray-100"
+    >
+      <img
+        src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+        alt="Google"
+        className="w-4 h-4"
+      />
+
+      Google দিয়ে চালিয়ে যান
+    </button>
+
+    {/* Sign In Link */}
+    <p className="text-center text-sm mt-4 text-[#26332B]">
+      ইতিমধ্যে অ্যাকাউন্ট আছে?{" "}
+      <Link
+        href="/sign-in"
+        className="text-green-600 hover:text-green-700"
+      >
+        সাইন ইন করুন
+      </Link>
+    </p>
+
+  </div>
+
+  {/* Back to Home */}
+  <Link
+    href="/"
+    className="mt-6 text-sm text-gray-500 hover:text-green-700"
+  >
+    ← হোম পেজে ফিরে যান
+  </Link>
+
+</div>
         </div>
     );
 };

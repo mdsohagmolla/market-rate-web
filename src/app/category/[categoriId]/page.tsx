@@ -1,27 +1,43 @@
+
 import { Ifilter } from '@/app/page';
 import AllProductCard from '@/components/AllProductCard';
+import { notFound } from 'next/navigation';
+
+
 import React from 'react';
 
 const Category = async({params}:{params:{categoriId:string}}) => {
     const {categoriId}= await params
     
     // Data fething
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${categoriId}`)
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${categoriId}`,{
+        next: {
+            revalidate:3600,
+        }
+    })
      const data:Ifilter[] = await res.json();
+
+     
+     
+     
      const categoryData = data.slice(0,1)
-     console.log('slice er data', categoryData)
+     if(categoryData.length===0){
+        notFound()
+     }
+     
+     
     return (
         <div className='container mx-auto'>
             
             
             <div className='flex items-center bg-white p-4 m-3 rounded-2xl'>
                 <div className=''>
-                    <h1 className='text-5xl'> {data[0].image}</h1>
+                    <h1 className='text-5xl'> {data[0]?.image}</h1>
                   
                    
                 </div>
                 <div>
-                      <h1 className='text-2xl font-bold'>{data[0].categoryNameBn}</h1>
+                      <h1 className='text-2xl font-bold'>{data[0]?.categoryNameBn}</h1>
                       <h1>{`${data.length} টি পণ্যের আজকের দাম ও পরিবর্তন`}</h1>
                 </div>
                 
