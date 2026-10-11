@@ -2,7 +2,7 @@
 
 A simple web application to check daily prices of essential products in Bangladesh.
 
-# Features
+# 🚀Features
 
 View product prices
 
@@ -12,12 +12,12 @@ Browse all products
 
 Responsive design
 
-Technologies
+# 🛠️Technologies
 
-Next.js
+- Next.js
 
-React
+- React
 
-TypeScript
+- TypeScript
 
-Tailwind CSS
+- Tailwind CSS
