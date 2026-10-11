@@ -22,6 +22,7 @@ A simple web application to check daily prices of essential products in Banglade
 
 - Tailwind CSS
 
- # ⚙️ Run Locally
+ ## ⚙️ Run Locally
  Clone the repository:
-```git clone https://github.com/mdsohagmolla/market-rate-web.git```
+ ```bash
+//github.com/mdsohagmolla/market-rate-web.git
