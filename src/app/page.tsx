@@ -3,7 +3,7 @@ import DecreaseCard from "@/components/DecreaseCard";
 
 import HeroSection from "@/components/HeroSection";
 import ProductCard from "@/components/ProductCard";
-import AllProductPage from "./allProduct/page";
+
 
 
 export interface Ifilter {
@@ -66,7 +66,7 @@ export default async function Home() {
       </div>
 
       {/* সব পণ্য */}
-      <h1 className="font-bold text-2xl m-4"><span>🛒</span>সব পণ্য</h1>
+      <h1 className="font-bold text-2xl m-4 text-black"><span>🛒</span>সব পণ্য</h1>
       <div className="container mx-auto grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {
           data.map(item => <div key={item.id}><AllProductCard item={item}></AllProductCard></div>)
