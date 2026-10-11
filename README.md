@@ -24,4 +24,4 @@ A simple web application to check daily prices of essential products in Banglade
 
  # ⚙️ Run Locally
  Clone the repository:
-[google](https://github.com/mdsohagmolla/market-rate-web.git)
+```bash git clone https://github.com/mdsohagmolla/market-rate-web.git ```
