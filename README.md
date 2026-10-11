@@ -1,8 +1,8 @@
-#BazarDor — বাজার দর
+# BazarDor — বাজার দর
 
 A simple web application to check daily prices of essential products in Bangladesh.
 
-#Features
+# Features
 
 View product prices
 
