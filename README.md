@@ -4,13 +4,13 @@ A simple web application to check daily prices of essential products in Banglade
 
 # 🚀Features
 
-View product prices
+- View product prices
 
-Track price increases and decreases
+- Track price increases and decreases
 
-Browse all products
+- Browse all products
 
-Responsive design
+- Responsive design
 
 # 🛠️Technologies
 
@@ -21,3 +21,7 @@ Responsive design
 - TypeScript
 
 - Tailwind CSS
+
+ # ⚙️ Run Locally
+ Clone the repository:
+[google](https://github.com/mdsohagmolla/market-rate-web.git)
